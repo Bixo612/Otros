@@ -1,0 +1,11 @@
+MVC = Modelo Vista Controlador
+sistema para organizar las clases
+Vista => Controlador => Modelo
+Se le conoce tambien como modelo de 3 capas
+actualmente funciona 
+Vista <= Controlador => Modelo
+parte desde el controlador y llama a la vista y recibe info de la vista
+
+ORM = la capacidad de un framework la capacidad de transformar los datos de una base de datos relacional en objetos
+
+django admind revisar comandos

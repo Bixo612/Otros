@@ -1,0 +1,76 @@
+//import logo from './logo.svg';
+import ListadoResultados from './listadoResultados';
+//permite actualizar la pagina
+import { useState } from 'react';
+import './App.css';
+
+
+function App() {
+
+    //useState inicializa con arreglo vacío la  variable de estado operaciones
+    const [operaciones, setOperacion] = useState([])
+
+    function area(event) {
+        //prevent default evita que el submit envie los vaores a otra pagina y taget los pase a la funcion
+        event.preventDefault();
+        const lado_a = parseFloat(event.target.txt_valor_a.value)
+        const lado_b = parseFloat(event.target.txt_valor_b.value)
+        const area = lado_a * lado_b
+        //se crea un objeti neuvo con los resultados y datos obtenidos del formulario
+        const nuevo = {
+            valor1: lado_a,
+            valor2: lado_b,
+            resultado: area
+        }
+        //modifica el estado de useState con el nuevo objeto
+        setOperacion([...operaciones, nuevo])
+        event.target.txt_valor_a.value = ''
+        event.target.txt_valor_b.value = ''
+    }
+
+    return (
+        <div>
+
+            <div className='container'>
+                <form onSubmit={area}>
+
+                    <h2>Cálculo área rectangulo</h2>
+                    <div className='row'>
+                        <div className='col-xs-12 col-sm-6'>
+                            Ingrese lado A:
+                            <input className='form-control' type="text" name='txt_valor_a' /><br />
+                        </div>
+                        <div className='col-xs-12 col-sm-6'>
+                            Ingrese lado B:
+                            <input className='form-control' type="text" name='txt_valor_b' /><br />
+                        </div>
+                        <input type="submit" className='btn btn-primary' value="Calcular área rectangulo" />
+                    </div>
+                    <ListadoResultados resultados={operaciones} />
+
+                </form>
+            </div>
+
+        </div>
+    );
+}
+
+export default App;
+
+
+
+======================================================================
+
+
+function ListadoResultados(prop) {
+    return (
+        <ol>
+            {prop.resultados.map((elemento) =>
+                <li>Lado A:{elemento.valor1} Lado B: {elemento.valor1} Área: {elemento.resultado}</li>
+            )
+            }
+        </ol>
+    );
+}
+
+export default ListadoResultados;

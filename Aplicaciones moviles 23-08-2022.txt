@@ -1,0 +1,8 @@
+Aplicaciones moviles para iot 23-08-2022
+UI v/s GUI
+UI: Interfaz de usuario (interacion fisica o de acionamiento)
+GUI: Interfaz grafica de usuario
+UX: Experiencia de usuario
+*lean start up
+
+elegir 3 aplicaciones intaladas y crear mocukp que expliquen las acciones/eventos
